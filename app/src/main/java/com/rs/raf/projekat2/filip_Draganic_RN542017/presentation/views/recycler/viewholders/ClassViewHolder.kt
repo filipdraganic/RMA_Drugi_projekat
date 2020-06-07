@@ -19,6 +19,7 @@ class ClassViewHolder(override val containerView: View) : RecyclerView.ViewHolde
         ucionicaTV.text = cas.ucionica
         predavacTV.text = cas.nastavnik
 
+
     }
 
 }

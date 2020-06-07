@@ -34,4 +34,6 @@
     <string name="test">Test</string>
     <string name="dodaj_u_cekaonicu">Dodaj u cekaonicu</string>
     <string name="trazi_btn">Trazi</string>
+    <string name="note_content">Note Content</string>
+    <string name="note_title">Note title</string>
 </resources>

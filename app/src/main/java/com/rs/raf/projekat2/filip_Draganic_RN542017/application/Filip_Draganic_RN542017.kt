@@ -4,6 +4,7 @@ import android.app.Application
 import com.facebook.stetho.Stetho
 import com.rs.raf.projekat2.filip_Draganic_RN542017.modules.classModule
 import com.rs.raf.projekat2.filip_Draganic_RN542017.modules.coreModule
+import com.rs.raf.projekat2.filip_Draganic_RN542017.modules.notesModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -32,7 +33,9 @@ class Filip_Draganic_RN542017 : Application() {
     private fun initKoin() {
         val modules = listOf(
             coreModule,
-            classModule
+            classModule,
+            notesModule
+
 
         )
         startKoin {

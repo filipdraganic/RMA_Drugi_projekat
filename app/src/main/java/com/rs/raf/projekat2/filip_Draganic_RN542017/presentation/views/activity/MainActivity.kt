@@ -2,12 +2,17 @@ package com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.contract.NotesContract
+import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.NoteViewModel
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.viewpager.UpperPagerAdapter
 import com.rsrafprojekat1.Filip_Draganic_RN542017.R
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

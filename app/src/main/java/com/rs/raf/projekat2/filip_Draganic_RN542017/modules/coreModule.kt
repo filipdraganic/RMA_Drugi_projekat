@@ -6,6 +6,8 @@ import androidx.room.Room
 import com.facebook.stetho.okhttp3.BuildConfig
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.rs.raf.projekat2.filip_Draganic_RN542017.data.datasources.local.ClassDatabase
+import com.rs.raf.projekat2.filip_Draganic_RN542017.data.datasources.local.NotesDao
+import com.rs.raf.projekat2.filip_Draganic_RN542017.data.datasources.local.NotesDatabase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import okhttp3.OkHttpClient
@@ -27,6 +29,10 @@ val coreModule = module {
     }
 
     single { Room.databaseBuilder(androidContext(), ClassDatabase::class.java, "ClassDb")
+        .fallbackToDestructiveMigration()
+        .build() }
+
+    single { Room.databaseBuilder(androidContext(), NotesDatabase::class.java, "NotesDb")
         .fallbackToDestructiveMigration()
         .build() }
 

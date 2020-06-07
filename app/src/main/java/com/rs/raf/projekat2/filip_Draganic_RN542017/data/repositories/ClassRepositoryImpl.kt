@@ -18,7 +18,7 @@ class ClassRepositoryImpl (private val localDataSource: ClassDao, private val re
         return remoteDataSource
             .getAll()
             .doOnNext {
-                Timber.e("Fetchovanje svih u implementaciji")
+//                Timber.e("Fetchovanje svih u implementaciji")
                 val entitites = it.map {
                     ClassEntity(
                         0,
@@ -58,7 +58,6 @@ class ClassRepositoryImpl (private val localDataSource: ClassDao, private val re
     }
 
     override fun getClassByFilter(classFilter: ClassFilter): Observable<List<Class>> {
-        Timber.e("GLEDAJ OVDE -> day:"+classFilter.dan + "group:"+classFilter.grupe + "query:"+classFilter.searchQuery)
         return localDataSource
             .getClassByFilter(classFilter.grupe, classFilter.dan, classFilter.searchQuery)
             .map {

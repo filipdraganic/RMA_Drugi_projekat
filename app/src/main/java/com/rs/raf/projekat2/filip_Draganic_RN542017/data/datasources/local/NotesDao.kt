@@ -9,7 +9,6 @@ import io.reactivex.Observable
 @Dao
 abstract class NotesDao {
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(entity: NotesEntity): Completable
 

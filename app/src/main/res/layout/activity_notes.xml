@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context="com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.activity.NotesActivity">
+
+
+    <EditText
+        android:id="@+id/titleET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/note_title"
+        android:background="@drawable/okvirzadugmice"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="10dp"
+    />
+
+    <EditText
+        android:id="@+id/contentET"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="@string/note_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:background="@drawable/okvirzadugmice"
+        app:layout_constraintTop_toBottomOf="@id/titleET"
+        app:layout_constraintBottom_toTopOf="@id/izmeniBtn"
+        android:gravity="top|left"
+        />
+
+    <Button
+        android:id="@+id/odustaniBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/izmeniBtn"
+        android:background="@drawable/okvirzadugmice"
+
+        android:text="@string/odustani"
+        />
+
+    <Button
+        android:id="@+id/izmeniBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/odustaniBtn"
+        android:background="@drawable/okvirzadugmice"
+        android:text="@string/izmeni"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

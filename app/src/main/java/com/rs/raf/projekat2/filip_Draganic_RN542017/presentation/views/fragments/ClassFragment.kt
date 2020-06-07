@@ -106,7 +106,7 @@ class ClassFragment : Fragment(R.layout.fragment_classes){
 
         classViewModel.classesState.observe(viewLifecycleOwner, Observer{
             renderState(it)
-            Timber.e(it.toString())
+//            Timber.e(it.toString())
         })
 
         classViewModel.getAll()

@@ -2,7 +2,7 @@ package com.rs.raf.projekat2.filip_Draganic_RN542017.data.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.sql.Date
+import java.util.Date
 
 @Parcelize
 data class Notes (

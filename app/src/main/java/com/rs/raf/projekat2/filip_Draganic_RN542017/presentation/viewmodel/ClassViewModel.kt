@@ -36,7 +36,7 @@ class ClassViewModel(private val classRepository: ClassRepository) : ViewModel()
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnError{
                         Timber.e("Error in publish subject ClassViewModel")
-                        Timber.e(it)
+//                        Timber.e(it)
                     }
             }
             .subscribe(
