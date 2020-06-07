@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Student Helper 9000</string>
+    <string name="opis_aplikacije">Informacioni sistem za\n pracnje stanja\n pacijenata obolelih od \n Covid-19</string>
+    <string name="prijava_btn">Prijava</string>
+    <string name="uneti_pin">Uneti pin</string>
+    <string name="ime_bolnice">Ime bolnice</string>
+    <string name="prezime">Prezime</string>
+    <string name="ime">Ime</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="karton_pacijenta">Karton pacijenta</string>
+    <string name="stanje_pri_prijemu">Stanje pri prijemu</string>
+    <string name="trenutno_stanje">Trenutno stanje</string>
+    <string name="odustani">Odustani</string>
+    <string name="izmeni">Izmeni</string>
+    <string name="zdrav">Zdrav</string>
+    <string name="hospitalizacija">Hospitalizacija</string>
+    <string name="notes_search_hint">Search by title or content</string>
+    <string name="classes_search_hint">Profesor/Predmet</string>
+    <string name="trazi_btn_text">Trazi</string>
+    <string name="podaci_o_zdravstvenom_radniku">Podaci o zdravstvenom radniku</string>
+    <string name="bolnica">Bolnica:</string>
+    <string name="odjava">Odjava</string>
+    <string name="pregled_brojnog_stanja_pacijenata">Pregled brojnog stanja pacijenata</string>
+    <string name="broj_pacijenata_u_cekaonici">Broj pacijenata u cekaonici</string>
+    <string name="broj_hospitalizovanih_pacijenata">Broj hospitalizovanih pacijenata</string>
+    <string name="broj_otpustenih_pacijenata">Broj otpustenih pacijenata</string>
+    <string name="unos_novog_pacijenta">Unos novog pacijenta</string>
+    <string name="unesite_ime">Unesite ime</string>
+    <string name="unesite_prezime">Unesite prezime</string>
+    <string name="unesite_simptome_i_opste_stanje">Unesite simptome i opste stanje</string>
+    <string name="test">Test</string>
+    <string name="dodaj_u_cekaonicu">Dodaj u cekaonicu</string>
+    <string name="trazi_btn">Trazi</string>
+</resources>

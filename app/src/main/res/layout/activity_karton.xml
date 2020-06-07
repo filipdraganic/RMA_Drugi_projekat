@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:windowSoftInputMode="adjustResize"
+
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/karton_pacijenta"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:src="@drawable/tableta"
+
+        />
+
+    <EditText
+        android:id="@+id/imeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/okvirzadugmice"
+        android:padding="5dp"
+        android:maxLines="1"
+
+
+        />
+
+    <EditText
+        android:id="@+id/prezimeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:maxLines="1"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/okvirzadugmice"
+        android:padding="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stanje_pri_prijemu"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/stanjePriPrijemuET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/okvirzadugmice"
+        android:padding="5dp"
+        android:clickable="false"
+        android:focusable="false"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trenutno_stanje"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/trenutnoStanjeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/okvirzadugmice"
+        android:padding="5dp"
+
+        />
+    <TextView
+        android:id="@+id/datumPrijema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="10dp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <Button
+            android:id="@+id/odustaniBtn"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/odustani"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            />
+
+        <Button
+            android:id="@+id/izmeniBtn"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="@string/izmeni"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="20dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
+
+
+</ScrollView>

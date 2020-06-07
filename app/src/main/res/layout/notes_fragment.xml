@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_gravity="center_horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/okvirzadugmice"
+    android:layout_margin="20dp"
+    android:layout_marginBottom="20dp"
+    android:padding="10dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/slika"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/okvirzakrug"
+        android:src="@drawable/stonks"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/imeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@id/slika"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="40dp"
+        />
+    <TextView
+        android:id="@+id/prezimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@id/slika"
+        app:layout_constraintTop_toBottomOf="@id/imeTV"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        />
+
+
+
+    <Button
+        android:id="@+id/kartonBtn"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Karton"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <Button
+        android:id="@+id/otpustBtn"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Otpusti"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
