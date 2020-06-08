@@ -2,7 +2,6 @@ package com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.custom
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color.blue
 import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet

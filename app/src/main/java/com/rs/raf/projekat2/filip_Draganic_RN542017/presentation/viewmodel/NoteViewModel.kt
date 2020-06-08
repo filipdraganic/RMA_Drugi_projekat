@@ -16,7 +16,6 @@ import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.time.days
 
 class NoteViewModel(private val notesRepository: NotesRepository): ViewModel(), NotesContract.ViewModel{
 

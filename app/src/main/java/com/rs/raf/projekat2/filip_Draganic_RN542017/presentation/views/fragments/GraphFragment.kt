@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.contract.NotesContract
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.NoteViewModel
-import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.UserViewModel
 import com.rsrafprojekat1.Filip_Draganic_RN542017.R
 import kotlinx.android.synthetic.main.fragment_graf.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

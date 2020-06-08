@@ -3,11 +3,9 @@ package com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.fragment
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rs.raf.projekat2.filip_Draganic_RN542017.data.models.ClassFilter

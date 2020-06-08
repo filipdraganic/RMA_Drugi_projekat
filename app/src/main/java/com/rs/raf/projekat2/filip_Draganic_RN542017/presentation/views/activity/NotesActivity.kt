@@ -6,11 +6,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.contract.NotesContract
-import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.NoteViewModel
 import com.rsrafprojekat1.Filip_Draganic_RN542017.R
 import kotlinx.android.synthetic.main.activity_notes.*
-import kotlinx.android.synthetic.main.notes_fragment.*
 
 
 class NotesActivity : AppCompatActivity() {
