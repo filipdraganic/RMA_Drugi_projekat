@@ -10,7 +10,7 @@ import java.util.*
 
 @Database(
     entities = [NotesEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class NotesDatabase : RoomDatabase(){

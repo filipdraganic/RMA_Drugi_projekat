@@ -9,9 +9,24 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.notes_fragment.*
 import timber.log.Timber
 
-class NotesViewHolder (override val containerView :View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+class NotesViewHolder (override val containerView :View,
+                        onArchiveClick:(Int) -> Unit,
+                        onDeleteClick:(Int) -> Unit,
+                        onEditClick:(Int) -> Unit) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     init {
+        archiveBtn.setOnClickListener{
+            if(adapterPosition != RecyclerView.NO_POSITION)
+                onArchiveClick.invoke(adapterPosition)
+        }
+        deleteBtn.setOnClickListener{
+            if(adapterPosition != RecyclerView.NO_POSITION)
+                onDeleteClick.invoke(adapterPosition)
+        }
+        editBtn.setOnClickListener{
+            if(adapterPosition != RecyclerView.NO_POSITION)
+                onEditClick.invoke(adapterPosition)
+        }
 
     }
 
@@ -19,8 +34,10 @@ class NotesViewHolder (override val containerView :View) : RecyclerView.ViewHold
         titleTV.text = note.title
         contentTV.text = note.content
 
-        if(note.isArchived){
+        if(note.isArchived == 1){
             archiveBtn.setImageResource(R.drawable.ic_baseline_unarchive_24)
+        }else{
+            archiveBtn.setImageResource(R.drawable.ic_baseline_archive_24)
         }
 
     }

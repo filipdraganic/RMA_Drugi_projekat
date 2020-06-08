@@ -7,4 +7,5 @@ sealed class ClassState{
     object DataFetched: ClassState()
     data class Success(val classes: List<Class>): ClassState()
     data class Error(val message: String): ClassState()
+
 }

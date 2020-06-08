@@ -152,7 +152,7 @@ class ClassFragment : Fragment(R.layout.fragment_classes){
 
     override fun onResume() {
         super.onResume()
-
+        traziBtn.callOnClick()
 
 
     }

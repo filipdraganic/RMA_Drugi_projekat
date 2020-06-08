@@ -10,6 +10,8 @@ interface NotesRepository{
     fun getAll(): Observable<List<Notes>>
     fun insert(note: Notes): Completable
     fun getNotesByFilter(notesFilter: NotesFilter): Observable<List<Notes>>
-    fun update(title: String, content: String)
-    fun archive()
+    fun update(title: String, content: String): Completable
+    fun archive(id: Long, archive:Int):Completable
+    fun delete(id: Long):Completable
+    fun update(id: Long, title: String, content: String): Completable
 }

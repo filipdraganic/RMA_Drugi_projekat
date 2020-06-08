@@ -8,15 +8,12 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rs.raf.projekat2.filip_Draganic_RN542017.data.models.Notes
-import com.rs.raf.projekat2.filip_Draganic_RN542017.data.models.Pacijent
+import com.rs.raf.projekat2.filip_Draganic_RN542017.data.models.NotesFilter
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.contract.NotesContract
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.NoteViewModel
-import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.viewmodel.SharedViewModel
-import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.activity.MainActivity
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.activity.NotesActivity
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.recycler.adapter.NotesAdapter
 import com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.recycler.diff.NotesDiff
@@ -26,8 +23,6 @@ import kotlinx.android.synthetic.main.fragment_notes.*
 import kotlinx.android.synthetic.main.fragment_notes.searchET
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 class NotesFragment : Fragment(R.layout.fragment_notes){
@@ -60,11 +55,19 @@ class NotesFragment : Fragment(R.layout.fragment_notes){
 
 
         noteViewModel.notesState.observe(viewLifecycleOwner, Observer{
+            noteViewModel.drawSetData()
             renderState(it)
             Timber.e(it.toString())
         })
 
-        noteViewModel.getAll()
+
+
+
+        var toggle = false
+        if(toggleBtn.isChecked)
+            toggle = true
+
+        noteViewModel.getNotesByFilter(NotesFilter(searchQuery = searchET.text.toString(), creator = 1, isArchived = toggle))
 
 
     }
@@ -100,7 +103,21 @@ class NotesFragment : Fragment(R.layout.fragment_notes){
     private fun initListeners(){
 
         searchET.doAfterTextChanged {
+            var toggle = false
+            if(toggleBtn.isChecked)
+                toggle = true
+
+            noteViewModel.getNotesByFilter(NotesFilter(searchQuery = searchET.text.toString(), creator = 1, isArchived = toggle))
         }
+
+        toggleBtn.setOnClickListener {
+            var toggle = false
+            if(toggleBtn.isChecked)
+                toggle = true
+
+            noteViewModel.getNotesByFilter(NotesFilter(searchQuery = searchET.text.toString(), creator = 1, isArchived = toggle))
+        }
+
 
         floatingBtn.setOnClickListener{
 
@@ -124,20 +141,60 @@ class NotesFragment : Fragment(R.layout.fragment_notes){
                 val content = data?.getStringExtra("content")
                 Timber.e(title.toString() + " "+ content.toString())
 
-                noteViewModel.insert(Notes(0, 1, Date(), title.toString(), content.toString(), false ))
+                noteViewModel.insert(Notes(0, 1, Date(), title.toString(), content.toString(), 0 ))
 
             }
         }
 
+        if(requestCode == EDITKOD){
+            if(resultCode == Activity.RESULT_OK){
+                val title = data?.getStringExtra("title")
+                val content = data?.getStringExtra("content")
+                val id = data?.getLongExtra("id", 1)
+                Timber.e(title.toString() + " "+ content.toString() + " " + id.toString())
+
+                if (id != null) {
+                    noteViewModel.update(id , title.toString(), content.toString())
+                }else{
+                    Timber.e("Neuspelo editovanje")
+                }
+
+            }
+        }
     }
 
+    private val archiveButton: (Notes) -> Unit = {
+        var archive = 0
+        if(it.isArchived == 0) archive = 1
+
+        noteViewModel.archive(it.id, archive)
+
+    }
+
+    private val deleteButton: (Notes) -> Unit = {
+
+        noteViewModel.delete(it.id)
+
+    }
+
+
+    private val editButton: (Notes) -> Unit = {
+
+        val intent = Intent(context, NotesActivity::class.java)
+        intent.putExtra("requestCode", EDITKOD.toString())
+        intent.putExtra("title", it.title)
+        intent.putExtra("content", it.content)
+        intent.putExtra("id", it.id)
+        startActivityForResult(intent, EDITKOD)
+
+    }
 
 
 
     private fun initRecycler(){
 
         rvNotes.layoutManager = LinearLayoutManager(activity)
-        notesAdapter = NotesAdapter(NotesDiff())
+        notesAdapter = NotesAdapter(NotesDiff(), archiveButton, deleteButton, editButton)
         rvNotes.adapter = notesAdapter
 
     }

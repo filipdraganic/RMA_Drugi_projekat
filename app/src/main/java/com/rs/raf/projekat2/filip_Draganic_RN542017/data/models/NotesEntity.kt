@@ -12,5 +12,5 @@ data class NotesEntity (
     val dateCreated: Long,
     val title: String,
     val content: String,
-    val isArchived: Boolean
+    val isArchived: Int
 )

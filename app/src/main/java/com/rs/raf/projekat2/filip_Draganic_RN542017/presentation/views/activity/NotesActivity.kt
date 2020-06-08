@@ -28,6 +28,12 @@ class NotesActivity : AppCompatActivity() {
             izmeniBtn.text = "Napravi"
         }
         else{
+            val title = intent.getStringExtra("title")
+            val content = intent.getStringExtra("content")
+
+            titleET.setText(title)
+            contentET.setText(content)
+
             izmeniBtn.text = "Izmeni"
         }
 
@@ -56,12 +62,25 @@ class NotesActivity : AppCompatActivity() {
 
             }
             else{
-                val data = Intent()
+                if (intent.getStringExtra("requestCode") == "1337") {
+                    val data = Intent()
 
-                data.putExtra("title", title)
-                data.putExtra("content", content)
-                setResult(Activity.RESULT_OK, data)
-                finish()
+                    data.putExtra("title", title)
+                    data.putExtra("content", content)
+                    setResult(Activity.RESULT_OK, data)
+                    finish()
+                }
+                else{
+                    val id = intent.getLongExtra("id", 1)
+                    val data = Intent()
+
+                    data.putExtra("title", title)
+                    data.putExtra("content", content)
+                    data.putExtra("id", id )
+                    setResult(Activity.RESULT_OK, data)
+                    finish()
+
+                }
             }
 
 

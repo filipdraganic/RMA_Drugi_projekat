@@ -1,6 +1,5 @@
 package com.rs.raf.projekat2.filip_Draganic_RN542017.presentation.views.activity
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 import timber.log.Timber
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             val pin = pinET.text.toString()
             val ime = imeET.text.toString()
             val prezime = prezimeET.text.toString()
-            val bolnica = bolnicaET.text.toString()
 
 
 
@@ -47,23 +47,13 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
                 Toast.makeText(this,"Prezime je prekratko", Toast.LENGTH_SHORT).show()
             }
 
-            else if(bolnica.length < 3){
-                Toast.makeText(this,"Ime bolnice je prekratko", Toast.LENGTH_SHORT).show()
-            }
-
             else{
                 if(pin != "1234"){
                     Toast.makeText(this,"Pin je netacan", Toast.LENGTH_SHORT).show()
                 }
 
                 else{
-                    val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-                    val editor = sharedPreferences.edit()
-                    editor.putString("ime", ime)
-                    editor.putString("prezime", prezime)
-                    editor.putString("bolnica", bolnica)
-                    editor.putBoolean("loggedin",true)
-                    editor.apply()
+
 
 
                     Toast.makeText(this, "Uspesna prijava", Toast.LENGTH_SHORT).show()

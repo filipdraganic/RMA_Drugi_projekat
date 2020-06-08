@@ -21,6 +21,8 @@ class NotesRepositoryImpl(private val localDataSource: NotesDao) :NotesRepositor
         return localDataSource
             .getAll()
             .map {
+                Timber.e("Iz NotesImplementacije ")
+                Timber.e(it.toString())
                 it.map {
                     Notes(it.id, it.creator, Converters().fromTimestamp(it.dateCreated), it.title, it.content, it.isArchived)
                 }
@@ -38,9 +40,11 @@ class NotesRepositoryImpl(private val localDataSource: NotesDao) :NotesRepositor
 
     override fun getNotesByFilter(notesFilter: NotesFilter): Observable<List<Notes>> {
         Timber.e("GLEDAJ OVDE ->" + notesFilter.toString())
+        var toggle = 0
+        if(notesFilter.isArchived) toggle = 1
 
         return localDataSource
-            .getNotesByFilter(notesFilter.searchQuery, notesFilter.creator, notesFilter.isArchived)
+            .getNotesByFilter(notesFilter.searchQuery, notesFilter.creator, toggle)
             .map {
                 it.map {
                     Notes(it.id, it.creator, Converters().fromTimestamp(it.dateCreated), it.title, it.content, it.isArchived)
@@ -49,12 +53,27 @@ class NotesRepositoryImpl(private val localDataSource: NotesDao) :NotesRepositor
 
     }
 
-    override fun update(title: String, content: String) {
+    override fun update(title: String, content: String): Completable {
         TODO("Not yet implemented")
     }
 
-    override fun archive() {
-        TODO("Not yet implemented")
+    override fun archive(id: Long, archive: Int): Completable {
+        Timber.e("Arhiviranje id="+id)
+        return localDataSource
+            .archive(id, archive)
+    }
+
+    override fun delete(id: Long): Completable {
+        Timber.e("Brisanje id="+id)
+        return localDataSource
+            .delete(id)
+    }
+
+    override fun update(id: Long, title: String, content: String): Completable {
+        Timber.e("Updateovanje  id="+id + "title="+title + "content="+content)
+
+        return localDataSource
+            .update(id, title, content)
     }
 
 

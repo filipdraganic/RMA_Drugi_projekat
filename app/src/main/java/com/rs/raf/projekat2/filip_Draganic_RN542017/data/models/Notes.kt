@@ -11,5 +11,5 @@ data class Notes (
     val dateCreated: Date,
     var title: String,
     var content: String,
-    var isArchived: Boolean
+    var isArchived: Int
 ):Parcelable
